@@ -51,17 +51,12 @@ public class Build implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    
     @JoinColumn(name = "bauthorid", referencedColumnName = "authorid")
     @ManyToOne(optional = false)
     private Author bauthorid;
-    
-    
-    
 
     public Build() {
     }
-    
 
     public Build(Integer id) {
         this.id = id;
@@ -71,15 +66,6 @@ public class Build implements Serializable {
         this.id = id;
         this.title = title;
         this.content = content;
-    }
-     public Build(Integer id, String title, String content, Author bauthorid) {
-         
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.bauthorid = bauthorid;
-        bauthorid.getAuthorid();
-        bauthorid.setAuthorid(bauthorid.getAuthorid());
     }
 
     public Integer getId() {
@@ -91,16 +77,12 @@ public class Build implements Serializable {
     }
 
 
-    public int getBauthorid() {
-        
-        
-        return bauthorid.getAuthorid();
+    public Author getBauthorid() {
+        return bauthorid;
     }
 
     public void setBauthorid(Author bauthorid) {
-        bauthorid.setAuthorid(bauthorid.getAuthorid());
-        
-        
+        this.bauthorid = bauthorid;
     }
 
     @Override
